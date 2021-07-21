@@ -10,14 +10,11 @@ class Signup extends PureComponent{
             name:"Ashu",
             loading:0
         }
-        alert("?In Constructor")
     }
     componentDidMount(){
-      alert("in did mount")
     }
 
     componentDidUpdate(){
-        alert("in did update")
 
     }
     user = {}
@@ -49,7 +46,6 @@ class Signup extends PureComponent{
     }
 
     render(){
-        alert("in render")
         // var loader
         // if(this.state.loading){
         //      loader =  <Loader

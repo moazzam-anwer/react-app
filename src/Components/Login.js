@@ -1,4 +1,5 @@
 import {Component} from "react"
+import { Link  , withRouter} from "react-router-dom"
 
 
 class Login extends Component{
@@ -19,12 +20,17 @@ class Login extends Component{
        }
     login = (event)=>{
         // updating the state
+        event.preventDefault()
+
+        console.log(">>>>>>>>>>>>>>>" , this.props)
         this.setState({
             name:"Ashu Lekhi",
             errorMessage:"Invalid Credentials"
         })
+        if(this.user.email=="ashu.lekhi0540@gmail.com" && this.user.password=="test"){
+            this.props.history.push("/")
+        }
        console.log("......................" , this.user) 
-       event.preventDefault()
     }
 
     render(){
@@ -42,6 +48,9 @@ class Login extends Component{
                     <input onChange={this.handlePassword} type="password" class="form-control"  placeholder="Password" />
                 </div>
                 <div>
+                    <Link to="/signup">New User? Signup Here</Link>
+                </div>
+                <div>
                 <label className="errormessage">{this.state.errorMessage}</label>
                 <button style={{float:"right"}} onClick={this.login} type="submit" class="btn btn-primary">Submit</button>
                 </div>
@@ -51,4 +60,6 @@ class Login extends Component{
     }
 }
 
-export default Login
+export default withRouter(Login)
+
+// withRouter is adding props to Login Component 

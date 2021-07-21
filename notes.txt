@@ -245,3 +245,40 @@ Step 2 )
  without Array [] called on every update 
  with blank array will not be called on any update setErrormessage
  array with some value it will be onlu called on change of those values 
+
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  Day 4 >>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+ Programatical ROuting 
+ Query in routes
+ Params in route 
+
+
+ Program routing is routing from javascript that means first we will call a function and from that function we will navigate to a path 
+
+ From Program we need a history object which contains a funtion known as push()
+
+ whereever we want to navigate history.push(path)
+ from where this history comes ?
+
+
+ Route tag add some additional props to these components 
+
+
+ withRouter (HOC) provided for adding route props 
+
+
+ /login /signup /search these are rutes any route can take query we add question mark to routes and send key=value 
+
+ /search?a=10&b=20&user=ashu.lekhi@gmail.com&password=test&x=something
+
+
+ We need to parse query string so we will install query-string 
+npm i query-string
+
+
+Context Provider Consumer
+
+sona   pushtein  usekarnewale 
+
+
+

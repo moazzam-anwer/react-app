@@ -3,7 +3,8 @@ let carousel2 = "image2.jpg"
 let carousel3 = "image3.jpg"
 
 
-function Carousel(){
+function Carousel(props){
+  console.log("???????????????????????? in carousel" , props)
     return (
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">

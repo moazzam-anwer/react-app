@@ -1,40 +1,35 @@
 import logo from './logo.svg';
 import './App.css';
-import {Navbar} from "./Components/Navbar"
-import Carousel from "./Components/Carousel"
-import Cake from './Components/Cake';
+import Navbar from "./Components/Navbar"
 import Login from './Components/Login';
 import Signup from './Components/Signup';
-import Loader from 'react-loader-spinner';
+import {BrowserRouter, Route, Switch} from "react-router-dom"
+import Home from './Components/Home';
+import Pagenotfound from './Components/Pagenotfound';
+import Search from './Components/Search';
+import CakeDetails from './Components/CakeDetails';
 
 
-let cake = {
-  name:"Chocolate Truffle",
-  price:500,
-  image:"truffle.jpeg"
-}
 
-let cake2 = {
-  name:"Fruit Cake",
-  price:800,
-  image:"fruit.webp"
-}
 function App() {
   return (
     <div>
-     <Navbar ></Navbar>
-    
-     <Signup />
-     <Carousel />
-     <div className="row">
-     <Cake data={cake} />
-     <Cake data={cake2} />
-     </div>
-     <Login />
+    <BrowserRouter>
+    <Navbar />
+    <Switch>
+    <Route exact path="/" component={Home} />
+    <Route exact path="/login" ><Login /></Route>
+    <Route exact path="/signup" component ={Signup} />
+    <Route exact path="/cake/:parametername" component ={CakeDetails} />
+    <Route exact path="/search" component ={Search} />
+    <Route exact path="**" component ={Pagenotfound} />
+    </Switch>
 
-   
+    </BrowserRouter>
     </div>
   );
 }
 
 export default App;
+
+
