@@ -1,5 +1,6 @@
 import {Component} from "react"
 import { Link  , withRouter} from "react-router-dom"
+import axios from "axios"
 
 
 class Login extends Component{
@@ -21,15 +22,16 @@ class Login extends Component{
     login = (event)=>{
         // updating the state
         event.preventDefault()
-
-        console.log(">>>>>>>>>>>>>>>" , this.props)
-        this.setState({
-            name:"Ashu Lekhi",
-            errorMessage:"Invalid Credentials"
+        let apiurl = "https://apifromashu.herokuapp.com/api/login"
+        axios({
+            method:"post",
+            url:apiurl,
+            data:this.user  // we requrie structure like {email,name,password}
+        }).then((response)=>{
+            console.log("response from login api",response)
+        },(error)=>{
+         console.log("error from login api",error)
         })
-        if(this.user.email=="ashu.lekhi0540@gmail.com" && this.user.password=="test"){
-            this.props.history.push("/")
-        }
        console.log("......................" , this.user) 
     }
 

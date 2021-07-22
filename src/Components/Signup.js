@@ -1,5 +1,6 @@
 import {Component, PureComponent} from "react"
 import Loader from "react-loader-spinner"
+import axios from "axios"
 
 
 class Signup extends PureComponent{
@@ -31,17 +32,16 @@ class Signup extends PureComponent{
         this.user.name= event.target.value
       }
     signup = (event)=>{
-       // updating the state
-        this.setState({
-            loading:98
-        })
-       console.log("......................" , this.user) 
-    //    setTimeout(()=>{
-    //        this.setState({
-    //            loading:false,
-    //            errorMessage:"Invalid Credentials"
-    //        })
-    //    },5000)
+        let apiurl = "https://apifromashu.herokuapp.com/api/register"
+       axios({
+           method:"post",
+           url:apiurl,
+           data:this.user  // we requrie structure like {email,name,password}
+       }).then((response)=>{
+           console.log("response from signup api",response)
+       },(error)=>{
+        console.log("error from signup api",error)
+       })
        event.preventDefault()
     }
 

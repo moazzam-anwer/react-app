@@ -278,7 +278,26 @@ npm i query-string
 
 Context Provider Consumer
 
-sona   pushtein  usekarnewale 
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Day 6 >>>>>>>>>>>>>>>>>>>>
+
+We are working as react developers 
+
+limited to make http calls (Api Calls )
+
+Apiurl method requestobject  (optionally responseobject)
+
+Foentedn we willbackedn for apis 
+
+they provide documentation 
+
+// registeration
+talking to backend developers
+// https://apifromashu.herokuapp.com/api
+
+/register post {email,name,password}
+
+
 
 
 

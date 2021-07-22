@@ -20,7 +20,7 @@ function App() {
     <Route exact path="/" component={Home} />
     <Route exact path="/login" ><Login /></Route>
     <Route exact path="/signup" component ={Signup} />
-    <Route exact path="/cake/:parametername" component ={CakeDetails} />
+    <Route exact path="/cake/:cakeid" component ={CakeDetails} />
     <Route exact path="/search" component ={Search} />
     <Route exact path="**" component ={Pagenotfound} />
     </Switch>
