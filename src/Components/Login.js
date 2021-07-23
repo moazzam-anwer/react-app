@@ -29,6 +29,14 @@ class Login extends Component{
             data:this.user  // we requrie structure like {email,name,password}
         }).then((response)=>{
             console.log("response from login api",response)
+            if(response.data.token){
+                this.props.loggedin()
+                localStorage.token = response.data.token
+                this.props.history.push("/")
+            }
+            else{
+                alert("Invalid Credentials")
+            }
         },(error)=>{
          console.log("error from login api",error)
         })

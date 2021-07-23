@@ -297,7 +297,22 @@ talking to backend developers
 
 /register post {email,name,password}
 
+step1
+parent will pass a function to child (Login ) as prop1
 
+step 2
+child component will call that function from props upon receiving the token
+
+step 3 
+in that parent function based on login parent will re render navbar with updated information 
+
+step 4 
+navbar will show logout and cart button based on the value coming as prop from parent 
+ 
+/recoverpassword post {email}
+
+
+// lifting the state up
 
 
 

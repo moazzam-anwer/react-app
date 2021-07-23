@@ -32,11 +32,18 @@ import { Link, withRouter } from "react-router-dom"
       <button onClick={search}  class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
       </ul>
-      <form class="form-inline my-2 my-lg-0">
+     {props.isuserloggedin==false && <form class="form-inline my-2 my-lg-0">
       <Link to="/login"> <button  class="btn btn-primary my-2 my-sm-0" type="submit">Login</button></Link>
-      </form>
+      </form>}
 
-    </div>
+      {props.isuserloggedin==true && <form class="form-inline my-2 my-lg-0">
+          <button  class="btn btn-danger my-2 my-sm-0" type="submit">Logout</button>
+          <button  class="btn btn-warning my-2 my-sm-0" type="submit">Cart</button>
+
+      </form>}
+
+
+    </div> 
   </nav>
    )
 
