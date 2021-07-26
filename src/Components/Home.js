@@ -8,9 +8,14 @@ function Home(props){
     return (
         <div>
             <Carousel />
+            <video controls>
+                <source src="https://nodetrainingbucket.s3.ap-southeast-1.amazonaws.com/filhaal2.mp4"></source>
+            </video>
             <MyContext.Provider>
             <Cakelist history={props.history}/>
             </MyContext.Provider>
+
+
            
         </div>
     )

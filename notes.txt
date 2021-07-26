@@ -315,4 +315,44 @@ navbar will show logout and cart button based on the value coming as prop from p
 // lifting the state up
 
 
+Cakes cakes search cake details 
+loaders 
+authentication  (Routing guards )
+react-toastify
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Day 9 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+Redux  is mainly used because of three principals
+
+1) Single source of truth -- whatever data u required will be stored in single object at one place known as state or store .. Store is an object which will contain all the application data 
+
+
+var str = "Ashu Lekhi"
+ str =  "Ashu"
+
+2) Store is immutable -- We will create a new object and store will refer to that new object in memory location
+
+3) only pure functions are allowed to update data on store Reducers 
+
+Actions will be disptached to store. On store reducers will listen to those actions and if match found . reducers will update the store and return the updated state of store 
+
+Actions  are plain objects which contains key type - DOTHIS DOTHAT -{type:"LOGIN"}
+Reducers - pure functions which will update the store 
+State  -- {} is an single object which will contain all the data 
+
+
+Today we can forget that react exists 
+Redux is stand alone that means it can be used only with plain js also 
+
+
+mehotds on store 
+
+Dispatch()
+getState()
+subscribe()
+
+
+
+
 
