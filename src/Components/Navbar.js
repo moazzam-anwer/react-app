@@ -1,5 +1,6 @@
 import {useState , useEffect} from "react"
 import { Link, withRouter } from "react-router-dom"
+import { connect } from "react-redux"
 
 
 
@@ -18,15 +19,23 @@ import { Link, withRouter } from "react-router-dom"
     function getSearchText(event){
       setSearchText(event.target.value)
     }
+
+    function logout(){
+      localStorage.clear()
+      window.location.reload()
+    }
    return (
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 <Link to="/" class="navbar-brand">{title}</Link>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-  
+   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
+      {props.name && <li className="navbar-brand">
+      Welcome {props.name}
+    </li>}
       <form style={{marginLeft:"10em"}} class="form-inline my-2 my-lg-0">
         <input onChange={getSearchText} id="searchinput" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
       <button onClick={search}  class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -37,18 +46,21 @@ import { Link, withRouter } from "react-router-dom"
       </form>}
 
       {props.isuserloggedin==true && <form class="form-inline my-2 my-lg-0">
-          <button  class="btn btn-danger my-2 my-sm-0" type="submit">Logout</button>
+          <button onClick={logout}  class="btn btn-danger my-2 my-sm-0" type="submit">Logout</button>
           <button  class="btn btn-warning my-2 my-sm-0" type="submit">Cart</button>
 
       </form>}
-
-
     </div> 
   </nav>
    )
 
 }
-
-export default Navbar = withRouter(Navbar)
+Navbar = withRouter(Navbar)
+export default connect(function(state,props){
+  return {
+    isuserloggedin : state["AuthReducer"]["isuserloggedin"],
+    name:state["AuthReducer"]["user"] && state["AuthReducer"]["user"]["name"]
+  }
+})(Navbar)
 
 

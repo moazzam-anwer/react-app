@@ -29,7 +29,6 @@ function Cakelist(props){
 <Cake data={cakes[4]} />  */}
   <div className ="row">
        {cakes.map((each,index)=>{
-         console.log("picking cakes one by one" , index , each)
          return <Cake key={index} data={each} />
        })}
 

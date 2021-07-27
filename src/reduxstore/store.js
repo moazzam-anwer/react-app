@@ -1,13 +1,12 @@
 import {createStore , combineReducers} from "redux"
-import { Ashu, Vaishali } from "./reducers"
+import { Ashu, Vaishali , AuthReducer } from "./reducers"
 
-var reducers = combineReducers({Ashu,Vaishali})
+var reducers = combineReducers({Ashu,Vaishali , AuthReducer})
 
 var store = createStore(reducers)
 
 export default store 
 
-console.log("store " , store.getState())
 
 // store.subscribe(()=>{
 //     console.log("i will be called on any event on store" , store.getState())
