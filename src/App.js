@@ -9,6 +9,7 @@ import Pagenotfound from './Components/Pagenotfound';
 import Search from './Components/Search';
 import CakeDetails from './Components/CakeDetails';
 import { useState } from 'react';
+import Cart from './Components/Cart';
 
 
 
@@ -25,6 +26,8 @@ function App() {
     <Route exact path="/" component={Home} />
     <Route exact path="/login" ><Login loggedin={loggedin} /></Route>
     <Route exact path="/signup" component ={Signup} />
+    <Route exact path="/cart" component ={Cart} />
+
     <Route exact path="/cake/:cakeid" component ={CakeDetails} />
     <Route exact path="/search" component ={Search} />
     <Route exact path="**" component ={Pagenotfound} />

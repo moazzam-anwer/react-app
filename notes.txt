@@ -352,6 +352,35 @@ Dispatch()
 getState()
 subscribe()
 
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   day 19
+
+mapstatetoporps --- map state is a function which will return state of redux 
+and we will bind props of component from state of redux 
+
+
+We dont want our components to make api calls ?
+
+We want reduc to make api calls 
+
+api is async task for performing async task in redux we need middlewares 
+
+By Default redux support Synchronous actions if we want async actions we want middlewares 
+
+2 commom middle wares are saga and thunk 
+thunk is easy 
+saga is way more complex 
+
+redux-thunk 
+redux-saga 
+
+works on a generator concept 
+
+function x(){  is a normal function
+
+}
+
+function *y() is a generator function which can return multiple values by pausing and resuming the function 
+
 
 
 

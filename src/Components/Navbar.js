@@ -47,7 +47,7 @@ import { connect } from "react-redux"
 
       {props.isuserloggedin==true && <form class="form-inline my-2 my-lg-0">
           <button onClick={logout}  class="btn btn-danger my-2 my-sm-0" type="submit">Logout</button>
-          <button  class="btn btn-warning my-2 my-sm-0" type="submit">Cart</button>
+          <Link to="/cart"><button  class="btn btn-warning my-2 my-sm-0" type="submit">Cart</button></Link>
 
       </form>}
     </div> 

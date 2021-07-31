@@ -1,10 +1,16 @@
-import {createStore , combineReducers} from "redux"
+import {createStore , combineReducers , applyMiddleware} from "redux"
 import { Ashu, Vaishali , AuthReducer } from "./reducers"
+
+import createSaga from "redux-saga"
+import RootSaga from "./sagas"
+
+var sagaMiddleware = createSaga()
 
 var reducers = combineReducers({Ashu,Vaishali , AuthReducer})
 
-var store = createStore(reducers)
+var store = createStore(reducers, applyMiddleware(sagaMiddleware))
 
+sagaMiddleware.run(RootSaga)
 export default store 
 
 

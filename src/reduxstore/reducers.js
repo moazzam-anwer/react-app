@@ -2,7 +2,8 @@
 
 
 export var AuthReducer = function(state ={
-    isuserloggedin : localStorage.token?true:false
+    isuserloggedin : localStorage.token?true:false,
+    isloading:false
 },action){
 // state means here state of store i.e that object whihc contains data
 // action means what it has to do 
@@ -26,14 +27,21 @@ export var Ashu = function(state ={
 // action means what it has to do 
 
    switch(action.type){
-       case "SOMEACTION" :{
+       case "CART_FETCHING" :{
            state = {...state}
-           // do something to state
+           state["isloading"] = true
            return state
        }
-       case "DELL_LAPTOP" :{
+       case "CART_FTECHED" :{
         state = {...state}
-        state["dell"]-=1
+        state["isloading"] = false
+        state["cartitems"] = action.payload
+        return state
+    }
+    case "CART_FAILURE" :{
+        state = {...state}
+        state["isloading"] = false
+        state["carterror"] = "Some Error Occurred"
         return state
     }
 
