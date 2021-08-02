@@ -7,15 +7,27 @@ export var AuthReducer = function(state ={
 },action){
 // state means here state of store i.e that object whihc contains data
 // action means what it has to do 
-   console.log("ooooooooooooooooo")
+   console.log("ooooooooooooooooo" , action)
    switch(action.type){
-       case "LOGIN" :{
+       case "LOGIN_FETCH":{
+           state= {...state}
+           state["isloading"] = true
+           return state
+       }
+       case "LOGIN_SUCESS" :{
            state = {...state}
            state["isuserloggedin"] = true
            state["user"] = action.payload
+           state["isloading"] = false
            console.log(">>>>>>>>>>>>>>>>>>>>" , state)
            return state
        }
+       case "LOGIN_FAILURE":{
+        state= {...state}
+        state["isloading"] = false
+        state["error"]="INVALID LOGIN"
+        return state
+    }
        default : return state
    }
 }

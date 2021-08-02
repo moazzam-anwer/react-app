@@ -383,5 +383,28 @@ function *y() is a generator function which can return multiple values by pausin
 
 
 
+/cakecart
+
+
+/addcaketocart
+/removeonecakefromcart {cakeid}  post
+/removecakefromcart  {cakeid}  post
+
+
+
+>>>>>>>>>>>>>>>>>>>>  what do we dispatch from components ?
+
+
+ACTIONS :{}
+
+
+We will use thunk 
+
+with thunk rather than dispatching actions we can dispatch functions 
+
+LoginThunk()
+ 
+
+
 
 

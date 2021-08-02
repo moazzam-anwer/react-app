@@ -2,6 +2,7 @@ import {Component} from "react"
 import { Link  , withRouter} from "react-router-dom"
 import axios from "axios"
 import { connect } from "react-redux"
+import { Loginthunk } from "../reduxstore/thunks"
 
 
 class Login extends Component{
@@ -24,26 +25,27 @@ class Login extends Component{
         // updating the state
         event.preventDefault()
         let apiurl = "https://apifromashu.herokuapp.com/api/login"
-        axios({
-            method:"post",
-            url:apiurl,
-            data:this.user  // we requrie structure like {email,name,password}
-        }).then((response)=>{
-            console.log("response from login api",response)
-            if(response.data.token){
-                this.props.dispatch({
-                    type:"LOGIN",
-                    payload:response.data
-                })
-                localStorage.token = response.data.token
-                this.props.history.push("/")
-            }
-            else{
-                alert("Invalid Credentials")
-            }
-        },(error)=>{
-         console.log("error from login api",error)
-        })
+        this.props.dispatch(Loginthunk(this.user))
+        // axios({
+        //     method:"post",
+        //     url:apiurl,
+        //     data:this.user  // we requrie structure like {email,name,password}
+        // }).then((response)=>{
+        //     console.log("response from login api",response)
+        //     if(response.data.token){
+        //         this.props.dispatch({
+        //             type:"LOGIN",
+        //             payload:response.data
+        //         })
+        //         localStorage.token = response.data.token
+        //         this.props.history.push("/")
+        //     }
+        //     else{
+        //         alert("Invalid Credentials")
+        //     }
+        // },(error)=>{
+        //  console.log("error from login api",error)
+        // })
        console.log("......................" , this.user) 
     }
 

@@ -57,6 +57,7 @@ import { connect } from "react-redux"
 }
 Navbar = withRouter(Navbar)
 export default connect(function(state,props){
+  console.log(".............. state" , state)
   return {
     isuserloggedin : state["AuthReducer"]["isuserloggedin"],
     name:state["AuthReducer"]["user"] && state["AuthReducer"]["user"]["name"]

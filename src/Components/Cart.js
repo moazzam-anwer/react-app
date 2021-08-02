@@ -14,4 +14,8 @@ function Cart(props){
     )
 }
 
-export default connect()(Cart)
+export default connect((state,props)=>{
+  return {
+      cartitems : state["Ashu"]["cartitems"]
+  }
+})(Cart)
