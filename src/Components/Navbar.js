@@ -5,7 +5,7 @@ import { connect } from "react-redux"
 
 
  function Navbar(props){
-    var [title, setTitle] = useState("Ashu's Cake Gallery")
+    var [title, setTitle] = useState("Moazzam's Cake Gallery")
     var [searchtext, setSearchText] = useState(undefined)
 
     function search(e){

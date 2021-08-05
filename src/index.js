@@ -1,40 +1,33 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import "./reduxstore/store"
+import  axios from 'axios';
+import mystore from './reduxstore/store'
 import { Provider } from 'react-redux';
-import mystore from "./reduxstore/store"
 
-import axios from "axios"
+axios.interceptors.request.use((request)=>{
+  // console.log("......" , request.url)
+  // console.log("localStorage.token>>>>>>>>>>>>>>",localStorage.getItem('token'))
 
-export var shailesh = axios.create()
-
-
-
-
-
-shailesh.interceptors.request.use((request)=>{
-  alert("...")
-  request.headers["authtoken"] = localStorage.token
+  if(request.url.includes("upload") || request.url.includes("cart") ){
+    if(localStorage.getItem('token')){
+      request.headers["authtoken"] = localStorage.getItem('token')
+    } 
+  }
   return request
- 
+},(error)=>{
+  return Promise.reject(error)
 })
 
-// axios.interceptors.response.use((response)=>{
-//   alert("response")
-
-//   return response
-// })
-
-
 ReactDOM.render(
-    <Provider store={mystore}>
-            <App />
-    </Provider>
-    ,
+  // <React.StrictMode>
+  <Provider store={mystore}>
+    <App />
+  </Provider>
+  // </React.StrictMode>
+  ,
   document.getElementById('root')
 );
 

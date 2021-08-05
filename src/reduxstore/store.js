@@ -1,40 +1,19 @@
-import {createStore , combineReducers , applyMiddleware} from "redux"
-import { Ashu, Vaishali , AuthReducer } from "./reducers"
-import thunk from "redux-thunk"
+import { createStore, combineReducers, applyMiddleware } from "redux";
+import { authReducer,cakeReducer,cartReducer } from "./reducers"//attendTraning ,leftTraning,
+import thunk from "redux-thunk";
 
 import createSaga from "redux-saga"
 import RootSaga from "./sagas"
 
 var sagaMiddleware = createSaga()
 
-var reducers = combineReducers({Ashu,Vaishali , AuthReducer})
+var reducers = combineReducers({authReducer,cakeReducer,cartReducer})//attendTraning ,leftTraning,
+var store = createStore(reducers, applyMiddleware(sagaMiddleware,thunk))
 
-var store = createStore(reducers, applyMiddleware(sagaMiddleware, thunk))
-
-sagaMiddleware.run(RootSaga)
-export default store 
+sagaMiddleware.run(RootSaga)    
+export default store
 
 
-// store.subscribe(()=>{
-//     console.log("i will be called on any event on store" , store.getState())
-// })
-
-// var storedata =  store.getState()
-
-// console.log("state of store is initially " , storedata)
-
-// store.dispatch({
-//     type:"DELL_LAPTOP"
-// })
-
-// var storedata =  store.getState()
-
-// console.log("state of store is" , storedata)
-
-// store.dispatch({
-//     type:"DELL_LAPTOP1"
-// })
-
-// store.dispatch({
-//     type:"DELL_LAPTOP2"
-// })
+store.subscribe(()=>{
+    console.log("i will be called on any event on store" , store.getState())
+})

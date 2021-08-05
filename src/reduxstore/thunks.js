@@ -2,6 +2,7 @@ import axios from "axios"
 
  export  function Loginthunk(data){
     return async (dispatch)=>{
+        console.log(",,,,,data,,,,",data)
         dispatch({
             type:"LOGIN_FETCH"
         })
@@ -12,7 +13,7 @@ import axios from "axios"
         })
         if(result.data.token){
             dispatch({
-                type:"LOGIN_SUCESS",
+                type:"LOGIN",
                 payload:result.data
             })
         }
@@ -24,4 +25,3 @@ import axios from "axios"
        
     }
 }
-
